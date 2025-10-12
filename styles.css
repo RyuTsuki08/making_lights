@@ -19,11 +19,22 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header.scrolled {
     background-color: #1A4D9D;
+}
+
+/* Navbar adaptativo según fondo */
+.light-bg header {
+    background-color: #FFFFFF;
+    color: #2C2C2C;
+}
+
+.light-bg header.scrolled {
+    background-color: #1A4D9D;
+    color: #FFFFFF;
 }
 
 nav {
@@ -33,7 +44,7 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    
+
 }
 
 .logo h1 {
@@ -51,15 +62,17 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #FFFFFF;
+    color: inherit;
     text-decoration: none;
     font-weight: 400;
+    transition: color 0.3s;
 }
 /* Banner */
 #banner {
-    background: linear-gradient(135deg, #1A4D9D 0%, #2E7D32 100%);
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('assets/images/banner.jpeg');
     background-attachment: fixed;
     background-size: cover;
+    background-position: center;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -67,6 +80,7 @@ nav ul li a {
     color: #FFFFFF;
     margin-top: 0px;
     text-align: center;
+    position: relative;
 }
 
 .banner-content h1 {
@@ -78,6 +92,203 @@ nav ul li a {
 .banner-content p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+}
+
+/* 3D Atom Animation */
+.atom-3d {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.atom-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle at 30% 30%, #F7A71B, #FDD017);
+    border-radius: 50%;
+    box-shadow:
+        0 0 20px rgba(247, 167, 27, 0.8),
+        inset -5px -5px 10px rgba(0, 0, 0, 0.3),
+        inset 5px 5px 10px rgba(255, 255, 255, 0.5);
+    animation: pulse 2s infinite, rotate3d 20s infinite linear;
+    z-index: 10;
+}
+
+.electron {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #FFFFFF, #E0E0E0);
+    border-radius: 50%;
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.9),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.electron-1 {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: orbit1 3s linear infinite, electronGlow 3s infinite;
+}
+
+.electron-2 {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: orbit2 3s linear infinite, electronGlow 3s infinite 0.75s;
+}
+
+.electron-3 {
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    animation: orbit3 3s linear infinite, electronGlow 3s infinite 1.5s;
+}
+
+.electron-4 {
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    animation: orbit4 3s linear infinite, electronGlow 3s infinite 2.25s;
+}
+
+/* Orbital paths and connecting lines */
+.atom-3d::before,
+.atom-3d::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.atom-3d::before {
+    width: 180px;
+    height: 180px;
+}
+
+.atom-3d::after {
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%) rotateX(60deg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Connecting lines from core to electrons */
+.atom-3d .electron::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.6) 0%, transparent 100%);
+    transform-origin: 0 50%;
+    animation: linePulse 3s infinite;
+}
+
+.electron-1::before {
+    width: 85px;
+    height: 2px;
+    transform: translateX(-50%) translateY(-50%) rotate(270deg);
+}
+
+.electron-2::before {
+    width: 85px;
+    height: 2px;
+    transform: translateX(-50%) translateY(-50%) rotate(90deg);
+}
+
+.electron-3::before {
+    width: 85px;
+    height: 2px;
+    transform: translateX(-50%) translateY(-50%) rotate(180deg);
+}
+
+.electron-4::before {
+    width: 85px;
+    height: 2px;
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow:
+            0 0 20px rgba(247, 167, 27, 0.8),
+            inset -5px -5px 10px rgba(0, 0, 0, 0.3),
+            inset 5px 5px 10px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow:
+            0 0 30px rgba(247, 167, 27, 1),
+            inset -7px -7px 15px rgba(0, 0, 0, 0.4),
+            inset 7px 7px 15px rgba(255, 255, 255, 0.6);
+    }
+}
+
+@keyframes rotate3d {
+    from { transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg); }
+    to { transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg); }
+}
+
+@keyframes orbit1 {
+    from { transform: translateX(-50%) translateY(0) rotate(0deg) translateY(-90px) rotate(0deg); }
+    to { transform: translateX(-50%) translateY(0) rotate(360deg) translateY(-90px) rotate(-360deg); }
+}
+
+@keyframes orbit2 {
+    from { transform: translateX(-50%) translateY(0) rotate(0deg) translateY(90px) rotate(0deg); }
+    to { transform: translateX(-50%) translateY(0) rotate(360deg) translateY(90px) rotate(-360deg); }
+}
+
+@keyframes orbit3 {
+    from { transform: translateY(-50%) translateX(0) rotate(0deg) translateX(-90px) rotate(0deg); }
+    to { transform: translateY(-50%) translateX(0) rotate(360deg) translateX(-90px) rotate(-360deg); }
+}
+
+@keyframes orbit4 {
+    from { transform: translateY(-50%) translateX(0) rotate(0deg) translateX(90px) rotate(0deg); }
+    to { transform: translateY(-50%) translateX(0) rotate(360deg) translateX(90px) rotate(-360deg); }
+}
+
+@keyframes electronGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 15px rgba(255, 255, 255, 0.9),
+            inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+            inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+    }
+    50% {
+        box-shadow:
+            0 0 25px rgba(255, 255, 255, 1),
+            inset -3px -3px 6px rgba(0, 0, 0, 0.3),
+            inset 3px 3px 6px rgba(255, 255, 255, 0.9);
+    }
+}
+
+@keyframes linePulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateX(-50%) translateY(-50%) scaleX(0.8);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(-50%) translateY(-50%) scaleX(1.2);
+    }
 }
 
 /* Hero */
@@ -157,6 +368,108 @@ footer {
 footer p {
     margin-bottom: 0.5rem;
 }
+/* Service Banner */
+#service-banner {
+    background: url('../assets/images/servicios/service_banner.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    text-align: center;
+    position: relative;
+}
+
+#service-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 77, 157, 0.6);
+    z-index: 1;
+}
+
+.service-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.service-banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.service-banner-content p {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Service Showcase */
+#service-showcase {
+    background: url('assets/images/servicios/service_banner.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    text-align: center;
+    position: relative;
+}
+
+#service-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(247, 167, 27, 0.7);
+    z-index: 1;
+}
+
+.service-showcase-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    padding: 0 2rem;
+}
+
+.service-showcase-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+}
+
+.service-showcase-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.service-showcase-content .cta-button {
+    background-color: #1A4D9D;
+    color: #FFFFFF;
+}
+
+.service-showcase-content .cta-button:hover {
+    background-color: #2E7D32;
+}
+
 /* Services */
 #services {
     background-color: #FFFFFF;
@@ -203,7 +516,10 @@ footer p {
 
 /* Contact */
 #contact {
-    background-color: #FFFFFF;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../assets/images/contacto/background_contact.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     padding: 4rem 2rem;
     color: #2C2C2C;
 }
@@ -219,6 +535,63 @@ footer p {
     text-align: center;
     margin-bottom: 3rem;
     font-size: 1.2rem;
+}
+
+/* Formulario */
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #1A4D9D;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #F7A71B;
+}
+
+.form-group input:invalid,
+.form-group textarea:invalid {
+    border-color: #FF0000;
+}
+
+.form-group input.valid,
+.form-group textarea.valid {
+    border-color: #2E7D32;
+}
+
+.form-group input.invalid,
+.form-group textarea.invalid {
+    border-color: #FF0000;
+}
+
+.error-message {
+    color: #FF0000;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
 }
 
 .contact-info {
@@ -251,6 +624,197 @@ footer p {
     color: #1A4D9D;
 }
 
+/* Products Carousel */
+#products {
+    background-color: #F7A71B;
+    padding: 4rem 2rem;
+    color: #FFFFFF;
+}
+
+#products h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #FFFFFF;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card {
+    flex: 0 0 300px;
+    margin: 0 10px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1A4D9D;
+}
+
+.product-card p {
+    padding: 0 1rem;
+    margin: 0;
+    color: #656665;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.product-card .cta-button {
+    display: block;
+    margin: 1rem;
+    text-align: center;
+    background-color: #F7A71B;
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.product-card .cta-button:hover {
+    background-color: #FDD017;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(26, 77, 157, 0.8);
+    color: #FFFFFF;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(26, 77, 157, 1);
+}
+
+.carousel-btn.prev {
+    left: -25px;
+}
+
+.carousel-btn.next {
+    right: -25px;
+}
+
+/* Product Detail */
+#product-detail {
+    background-color: #FFFFFF;
+    padding: 4rem 2rem;
+    color: #2C2C2C;
+}
+
+.product-detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-info h1 {
+    font-size: 2.5rem;
+    color: #1A4D9D;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #F7A71B;
+    margin-bottom: 1.5rem;
+}
+
+.product-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #656665;
+}
+
+.product-features h3 {
+    color: #1A4D9D;
+    margin-bottom: 1rem;
+}
+
+.product-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-features li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.product-features li:before {
+    content: "✓";
+    color: #F7A71B;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.product-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cta-button.secondary {
+    background-color: #1A4D9D;
+    color: #FFFFFF;
+}
+
+.cta-button.secondary:hover {
+    background-color: #2E7D32;
+}
+
 /* Responsividad básica */
 @media (max-width: 768px) {
     nav {
@@ -267,5 +831,269 @@ footer p {
 
     .hero-content h2 {
         font-size: 2rem;
+    }
+
+    .product-card {
+        flex: 0 0 280px;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .carousel-btn.prev {
+        left: -20px;
+    }
+
+    .carousel-btn.next {
+        right: -20px;
+    }
+
+    .product-detail-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .product-info h1 {
+        font-size: 2rem;
+    }
+
+    .product-actions {
+        flex-direction: column;
+    }
+
+    .atom-3d {
+        width: 150px;
+        height: 150px;
+        right: 5%;
+    }
+
+    .service-banner-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .service-banner-content p {
+        font-size: 1.2rem;
+    }
+
+    .service-showcase-content h2 {
+        font-size: 2rem;
+    }
+
+    .service-showcase-content p {
+        font-size: 1rem;
+    }
+
+    .atom-core {
+        width: 18px;
+        height: 18px;
+    }
+
+    .electron {
+        width: 8px;
+        height: 8px;
+    }
+
+    .electron-1 {
+        animation: orbit1-mobile 3s linear infinite, electronGlow 3s infinite;
+    }
+
+    .electron-2 {
+        animation: orbit2-mobile 3s linear infinite, electronGlow 3s infinite 0.75s;
+    }
+
+    .electron-3 {
+        animation: orbit3-mobile 3s linear infinite, electronGlow 3s infinite 1.5s;
+    }
+
+    .electron-4 {
+        animation: orbit4-mobile 3s linear infinite, electronGlow 3s infinite 2.25s;
+    }
+
+    .atom-3d::before {
+        width: 140px;
+        height: 140px;
+    }
+
+    .atom-3d::after {
+        width: 90px;
+        height: 90px;
+    }
+
+    .atom-3d .electron::before {
+        display: none; /* Hide lines on mobile for cleaner look */
+    }
+}
+
+@keyframes orbit1-mobile {
+    from { transform: translateX(-50%) translateY(0) rotate(0deg) translateY(-60px) rotate(0deg); }
+    to { transform: translateX(-50%) translateY(0) rotate(360deg) translateY(-60px) rotate(-360deg); }
+}
+
+@keyframes orbit2-mobile {
+    from { transform: translateX(-50%) translateY(0) rotate(0deg) translateY(60px) rotate(0deg); }
+    to { transform: translateX(-50%) translateY(0) rotate(360deg) translateY(60px) rotate(-360deg); }
+}
+
+@keyframes orbit3-mobile {
+    from { transform: translateY(-50%) translateX(0) rotate(0deg) translateX(-60px) rotate(0deg); }
+    to { transform: translateY(-50%) translateX(0) rotate(360deg) translateX(-60px) rotate(-360deg); }
+}
+
+@keyframes orbit4-mobile {
+    from { transform: translateY(-50%) translateX(0) rotate(0deg) translateX(60px) rotate(0deg); }
+    to { transform: translateY(-50%) translateX(0) rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+/* Chatbot Styles */
+#chatbot-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-family: 'Exo 2', sans-serif;
+}
+
+#chatbot-toggle {
+    width: 60px;
+    height: 60px;
+    background-color: #F7A71B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+}
+
+#chatbot-toggle:hover {
+    background-color: #FDD017;
+    transform: scale(1.1);
+}
+
+#chatbot-container {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 500px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#chatbot-container.show {
+    display: flex;
+}
+
+#chatbot-header {
+    background-color: #1A4D9D;
+    color: #FFFFFF;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatbot-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+#chatbot-close {
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#chatbot-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #F8F9FA;
+}
+
+.message {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.bot {
+    background-color: #1A4D9D;
+    color: #FFFFFF;
+    align-self: flex-start;
+}
+
+.message.user {
+    background-color: #F7A71B;
+    color: #FFFFFF;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+#chatbot-input-area {
+    display: flex;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-top: 1px solid #E0E0E0;
+}
+
+#chatbot-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #E0E0E0;
+    border-radius: 20px;
+    outline: none;
+    font-family: 'Exo 2', sans-serif;
+}
+
+#chatbot-send {
+    background-color: #F7A71B;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    transition: background-color 0.3s;
+}
+
+#chatbot-send:hover {
+    background-color: #FDD017;
+}
+
+/* Chatbot Responsiveness */
+@media (max-width: 768px) {
+    #chatbot-widget {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    #chatbot-container {
+        width: calc(100vw - 20px);
+        height: 400px;
+        bottom: 80px;
+        right: -10px;
+    }
+
+    #chatbot-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
     }
 }

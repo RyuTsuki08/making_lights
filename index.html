@@ -29,6 +29,13 @@
             <h1>Making Lights</h1>
             <p>Innovación y creatividad en cada proyecto</p>
         </div>
+        <div class="atom-3d">
+            <div class="atom-core"></div>
+            <div class="electron electron-1"></div>
+            <div class="electron electron-2"></div>
+            <div class="electron electron-3"></div>
+            <div class="electron electron-4"></div>
+        </div>
     </section>
 
     <section id="hero">
@@ -57,8 +64,75 @@
                 </div>
             </div>
         </div>
-    <script src="script.js"></script>
     </section>
+
+    <section id="service-showcase">
+        <div class="service-showcase-content">
+            <h2>Nuestros Servicios</h2>
+            <p>Descubre cómo podemos ayudarte con soluciones innovadoras en diseño y fabricación 3D</p>
+            <a href="pages/servicios.html" class="cta-button">Ver Servicios</a>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2>Nuestros Productos</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <div class="product-card">
+                            <img src="assets/images/product1.jpg" alt="Producto 1" onerror="this.src='https://via.placeholder.com/300x200?text=Producto+1'">
+                            <h3>ÁtomoCubo Básico</h3>
+                            <p>Kit de construcción modular para principiantes. Ideal para aprender conceptos de diseño 3D.</p>
+                            <a href="pages/producto1.html" class="cta-button">Ver Más</a>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/images/product2.jpg" alt="Producto 2" onerror="this.src='https://via.placeholder.com/300x200?text=Producto+2'">
+                            <h3>ÁtomoCubo Pro</h3>
+                            <p>Versión avanzada con componentes electrónicos integrados para proyectos interactivos.</p>
+                            <a href="pages/producto2.html" class="cta-button">Ver Más</a>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/images/product3.jpg" alt="Producto 3" onerror="this.src='https://via.placeholder.com/300x200?text=Producto+3'">
+                            <h3>Kit Educativo</h3>
+                            <p>Paquete completo para escuelas con guías pedagógicas y materiales didácticos.</p>
+                            <a href="pages/producto3.html" class="cta-button">Ver Más</a>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/images/product4.jpg" alt="Producto 4" onerror="this.src='https://via.placeholder.com/300x200?text=Producto+4'">
+                            <h3>Accesorios Personalizados</h3>
+                            <p>Piezas únicas diseñadas según tus especificaciones para proyectos especiales.</p>
+                            <a href="pages/producto4.html" class="cta-button">Ver Más</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" aria-label="Producto anterior"><</button>
+                <button class="carousel-btn next" aria-label="Producto siguiente">></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget">
+        <div id="chatbot-toggle">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div id="chatbot-container">
+            <div id="chatbot-header">
+                <h3>Asistente Virtual</h3>
+                <span id="chatbot-close">&times;</span>
+            </div>
+            <div id="chatbot-messages"></div>
+            <div id="chatbot-input-area">
+                <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje...">
+                <button id="chatbot-send" aria-label="Enviar mensaje">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 
     <footer id="contact">
         <div class="container">
