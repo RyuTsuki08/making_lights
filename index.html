@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="index-page">
     <header>
         <nav>
             <div class="logo">
@@ -17,7 +17,8 @@
             <ul>
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="pages/servicios.html">Servicios</a></li>
-                <li><a href="#features">Características</a></li>
+                <li><a href="pages/productos.html">Productos</a></li>
+                <li><a href="pages/caracteristicas.html">Características</a></li>
                 <li><a href="pages/contactanos.html">Contacto</a></li>
             </ul>
         </nav>
@@ -28,7 +29,9 @@
         <div class="banner-content">
             <h1>Making Lights</h1>
             <p>Innovación y creatividad en cada proyecto</p>
-        </div>
+            <a href="pages/contactanos.html" class="cta-button">Cotizar Ahora</a>
+        </div>     
+
         <div class="atom-3d">
             <div class="atom-core"></div>
             <div class="electron electron-1"></div>
@@ -38,30 +41,166 @@
         </div>
     </section>
 
+
     <section id="hero">
         <div class="hero-content">
             <h2>Fabricando Ideas Con Propósito</h2>
             <p>ÁtomoCubo 3D - Innovación y creatividad en cada proyecto.</p>
-            <a href="pages/contactanos.html" class="cta-button">Descubre Más</a>
+            <a href="./pages/contactanos.html" class="cta-button">Descubre Más</a>
         </div>
     </section>
 
+        <section id="carousel-section">
+  
+          <div class="carousel-container-first">
+
+             <div class="carousel-first-title">
+        <h2>Nuestro proposito</h2>
+        </div>
+      <div class="slide">
+        <div
+          class="item"
+          style="
+            background-image: url('./assets/images/servicios/service_banner.jpg');
+          "
+        >
+          <div class="content">
+            <div class="name">MAKING LIGHTS</div>
+            <div class="des">
+              Somos un taller creativo especializado en impresión 3D. Ofrecemos un servicio integral que abarca desde el diseño, escaneado 3D, cursos y alternativas de reciclaje para transformar tus ideas en proyectos sostenibles que transformen tu entorno "
+              <a
+              class="seeMore"
+              href="./pages/servicios.html"
+              ><button>Ver más</button></a
+            >
+            </div>
+          
+          </div>
+        </div>
+
+        <div
+          class="item"
+          style="
+            background-image: url('./assets/images/servicios/slide_2.jpeg');
+          "
+        >
+          <div class="content">
+            <div class="name">NUESTRO TRIPLE IMPACTO</div>
+            <div class="des">
+              Somos una empresa tipo B.  Trabajamos por impactar positivamente en nuestra realidad social, brindando formación a jóvenes para la creación de su proyecto de vida. ofreciendo alternativas economicas y sostenibles. "
+                        <a
+              class="seeMore"
+              href="./pages/caracteristicas.html"
+              ><button>Explorar</button></a
+            >
+            </div>
+
+          </div>
+        </div>
+
+        <div
+          class="item"
+          style="
+            background-image: url('./assets/images/servicios/slide_3.jpg');
+          "
+        >
+          <div class="content">
+            <div class="name">Mision, Vision y Objetivos</div>
+            <div class="des">
+              Nuestra Misiòn es ser agentes de cambio.
+
+Nuestra Visiòn esta en la tecnologìa 3D y la automatizaciòn de triple impacto.
+
+Nuestro principal objetivo es ser la vanguardia venezolana de jòvenes emprendedores con mayor impacto en el pais.  "
+
+ <a
+              class="seeMore"
+              href="./pages/productos.html"
+              ><button>Comprar ahora</button></a
+            >
+            </div>
+           
+          </div>
+        </div>
+
+        <!-- <div
+          class="item"
+          style="
+            background-image: url('');
+          "
+        >
+          <div class="content">
+            <div class="name">Japan</div>
+            <div class="des">
+              Discover serene mountain temples shrouded in dusk and ancient forest trails.
+            </div>
+            <a
+              class="seeMore"
+              target="_blank"
+              href="https://github.com/MDJAmin"
+              ><button>See More</button></a
+            >
+          </div>
+        </div> -->
+      </div>
+      <div class="button">
+        <button class="prev">◁</button>
+        <button class="next">▷</button>
+      </div>
+    </div>
+      </section>
+
+
     <section id="features">
         <div class="container">
-            <h2>Características</h2>
+            <div class="features-header">
+                <h2>Centro de Conocimiento</h2>
+                <p>Explora nuestro blog con artículos especializados sobre impresión 3D, diseño digital y tendencias tecnológicas</p>
+                <div class="features-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">7+</span>
+                        <span class="stat-label">Artículos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Conocimiento</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Actualizado</span>
+                    </div>
+                </div>
+            </div>
             <div class="features-grid">
-                <div class="feature">
-                    <h3>Innovación</h3>
-                    <p>Ideas frescas y soluciones creativas.</p>
+                <div class="feature feature-tutorial">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Tutoriales</h3>
+                    <p>Guías paso a paso para principiantes y expertos en impresión 3D.</p>
+                    <div class="feature-glow"></div>
                 </div>
-                <div class="feature">
-                    <h3>Propósito</h3>
-                    <p>Proyectos con significado y impacto.</p>
+                <div class="feature feature-tech">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Tecnología</h3>
+                    <p>Las últimas innovaciones y tendencias en fabricación digital.</p>
+                    <div class="feature-glow"></div>
                 </div>
-                <div class="feature">
-                    <h3>3D</h3>
-                    <p>Tecnología avanzada en diseño tridimensional.</p>
+                <div class="feature feature-sustainability">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Materiales ecológicos y prácticas responsables en el diseño 3D.</p>
+                    <div class="feature-glow"></div>
                 </div>
+            </div>
+            <div class="blog-cta-container">
+                <a href="pages/caracteristicas.html" class="cta-button blog-cta">
+                    <i class="fas fa-book-open"></i> APRENDE MÁS
+                </a>
             </div>
         </div>
     </section>
@@ -77,40 +216,165 @@
     <section id="products">
         <div class="container">
             <h2>Nuestros Productos</h2>
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="carousel-track">
-                        <div class="product-card">
-                            <img src="assets/images/product1.jpg" alt="Producto 1" onerror="this.src='https://via.placeholder.com/300x200?text=Producto+1'">
-                            <h3>ÁtomoCubo Básico</h3>
-                            <p>Kit de construcción modular para principiantes. Ideal para aprender conceptos de diseño 3D.</p>
-                            <a href="pages/producto1.html" class="cta-button">Ver Más</a>
-                        </div>
-                        <div class="product-card">
-                            <img src="assets/images/product2.jpg" alt="Producto 2" onerror="this.src='https://via.placeholder.com/300x200?text=Producto+2'">
-                            <h3>ÁtomoCubo Pro</h3>
-                            <p>Versión avanzada con componentes electrónicos integrados para proyectos interactivos.</p>
-                            <a href="pages/producto2.html" class="cta-button">Ver Más</a>
-                        </div>
-                        <div class="product-card">
-                            <img src="assets/images/product3.jpg" alt="Producto 3" onerror="this.src='https://via.placeholder.com/300x200?text=Producto+3'">
-                            <h3>Kit Educativo</h3>
-                            <p>Paquete completo para escuelas con guías pedagógicas y materiales didácticos.</p>
-                            <a href="pages/producto3.html" class="cta-button">Ver Más</a>
-                        </div>
-                        <div class="product-card">
-                            <img src="assets/images/product4.jpg" alt="Producto 4" onerror="this.src='https://via.placeholder.com/300x200?text=Producto+4'">
-                            <h3>Accesorios Personalizados</h3>
-                            <p>Piezas únicas diseñadas según tus especificaciones para proyectos especiales.</p>
-                            <a href="pages/producto4.html" class="cta-button">Ver Más</a>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-btn prev" aria-label="Producto anterior"><</button>
-                <button class="carousel-btn next" aria-label="Producto siguiente">></button>
+            <div id="featured-products" class="products-grid">
+                <!-- Productos destacados se cargarán dinámicamente desde el CSV -->
+            </div>
+            <div class="view-more-container">
+                <a href="pages/productos.html" class="cta-button">Ver Más Productos</a>
             </div>
         </div>
     </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>Lo Que Dicen Nuestros Clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Making Lights transformó completamente mi idea de negocio. Su equipo de impresión 3D me ayudó a crear prototipos que convencieron a mis inversionistas. ¡Profesionales y creativos!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>María González</h4>
+                            <p>Emprendedora Tecnológica</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Los cursos de Making Lights me dieron las herramientas necesarias para iniciar mi carrera en diseño 3D. No solo aprendí la técnica, sino también el impacto social que podemos generar con la tecnología."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Carlos Rodríguez</h4>
+                            <p>Diseñador 3D Junior</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Como empresa B, Making Lights no solo ofrece productos de calidad, sino que realmente impacta en la comunidad. Su enfoque en el triple impacto es inspirador y efectivo."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Ana López</h4>
+                            <p>Directora de Innovación</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location">
+        <div class="container">
+            <h2>Nuestra Ubicación</h2>
+            <p>Visítanos en el corazón de Caracas, Venezuela</p>
+            <div class="location-content">
+                <div class="location-info">
+                    <div class="location-details">
+                        <h3><i class="fas fa-map-marker-alt"></i> Dirección</h3>
+                        <p>Centro de Caracas<br>Venezuela</p>
+                        <h3><i class="fas fa-clock"></i> Horario de Atención</h3>
+                        <p>Lunes a Viernes: 9:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 2:00 PM</p>
+                        <h3><i class="fas fa-phone"></i> Teléfono</h3>
+                        <p>+58 414 123 4567</p>
+                        <a href="pages/contactanos.html" class="cta-button">Cómo Llegar</a>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.9999999999995!2d-66.90360368479272!3d10.48059379249663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58a5c5c5c5c5%3A0x1234567890abcdef!2sCentro%20de%20Caracas%2C%20Venezuela!5e0!3m2!1ses!2s!4v1635000000000!5m2!1ses!2s"
+                        width="100%"
+                        height="400"
+                        style="border:0; border-radius: 10px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+            // Función para parsear línea CSV correctamente
+            function parseCSVLine(line) {
+                const result = [];
+                let current = '';
+                let inQuotes = false;
+                for (let i = 0; i < line.length; i++) {
+                    const char = line[i];
+                    if (char === '"') {
+                        if (inQuotes && line[i + 1] === '"') {
+                            current += '"';
+                            i++; // skip next quote
+                        } else {
+                            inQuotes = !inQuotes;
+                        }
+                    } else if (char === ',' && !inQuotes) {
+                        result.push(current);
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                result.push(current);
+                return result;
+            }
+    
+            // Cargar productos destacados desde CSV
+            fetch('Making Lights_products.csv')
+                .then(response => response.text())
+                .then(data => {
+                    const lines = data.split('\n');
+                    const products = [];
+                    for (let i = 10; i < lines.length && products.length < 3; i++) {
+                        const line = lines[i].trim();
+                        if (line) {
+                            const columns = parseCSVLine(line);
+                            if (columns.length >= 18) {
+                                const product = {
+                                    id: columns[1],
+                                    name: columns[2],
+                                    description: columns[3],
+                                    price: columns[8],
+                                    image: columns[16],
+                                    categories: columns[11]
+                                };
+                                products.push(product);
+                            }
+                        }
+                    }
+                    displayFeaturedProducts(products);
+                })
+                .catch(error => console.error('Error loading products:', error));
+
+        function displayFeaturedProducts(products) {
+            const grid = document.getElementById('featured-products');
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p class="price">$${product.price}</p>
+                    <a href="pages/producto-${product.id}.html" class="cta-button">Ver Detalles</a>
+                `;
+                grid.appendChild(productCard);
+            });
+        }
+    </script>
 
     <!-- Chatbot Widget -->
     <div id="chatbot-widget">
@@ -134,10 +398,49 @@
 
     <script src="script.js"></script>
 
-    <footer id="contact">
-        <div class="container">
-            <p>&copy; 2023 Making Lights. Todos los derechos reservados.</p>
-            <p>Contacto: info@makinglights.com</p>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Making Lights</h3>
+                <p>Fabricando Ideas Con Propósito</p>
+                <p>Somos un taller creativo especializado en impresión 3D, ofreciendo servicios integrales de diseño, escaneado 3D, cursos y alternativas de reciclaje para transformar tus ideas en proyectos sostenibles.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="pages/servicios.html">Impresión 3D</a></li>
+                    <li><a href="pages/servicios.html">Diseño y Modelado</a></li>
+                    <li><a href="pages/servicios.html">Escaneado 3D</a></li>
+                    <li><a href="pages/servicios.html">Cursos y Capacitación</a></li>
+                    <li><a href="pages/servicios.html">Reciclaje y Sostenibilidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Productos</h3>
+                <ul>
+                    <li><a href="pages/productos.html">Ver Todos los Productos</a></li>
+                    <li><a href="pages/productos.html">Nuevos Lanzamientos</a></li>
+                    <li><a href="pages/productos.html">Ofertas Especiales</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> info@makinglights.com</p>
+                <p><i class="fas fa-phone"></i> +58 XXX XXX XXXX</p>
+                <p><i class="fas fa-map-marker-alt"></i> Venezuela</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Making Lights. Todos los derechos reservados.</p>
+                <p>Empresa B - Triple Impacto: Social, Ambiental y Económico</p>
+            </div>
         </div>
     </footer>
 </body>

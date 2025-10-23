@@ -7,6 +7,22 @@ window.addEventListener('scroll', function() {
     }
 });
 
+
+// Carrusel de servicios
+let next = document.querySelector(".next");
+let prev = document.querySelector(".prev");
+
+next.addEventListener("click", function () {
+  let items = document.querySelectorAll(".item");
+  document.querySelector(".slide").appendChild(items[0]);
+});
+
+prev.addEventListener("click", function () {
+  let items = document.querySelectorAll(".item");
+  document.querySelector(".slide").prepend(items[items.length - 1]);
+});
+
+
 // Validación dinámica del formulario de contacto
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
@@ -45,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
 function validateField(field) {
     const value = field.value.trim();
@@ -182,6 +199,82 @@ document.addEventListener('DOMContentLoaded', function() {
             isDragging = false;
             autoPlayInterval = setInterval(nextSlide, 5000);
         });
+    }
+});
+
+// Carrusel de slides principal
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselSection = document.getElementById('carousel-section');
+    if (carouselSection) {
+        const carouselTrack = carouselSection.querySelector('.carousel-track');
+        const prevBtn = carouselSection.querySelector('.carousel-btn.prev');
+        const nextBtn = carouselSection.querySelector('.carousel-btn.next');
+        const slides = carouselSection.querySelectorAll('.carousel-slide');
+
+        if (carouselTrack && prevBtn && nextBtn && slides.length > 0) {
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateCarousel() {
+                const translateX = -currentIndex * 100;
+                carouselTrack.style.transform = `translateX(${translateX}%)`;
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Auto-play opcional
+            let autoPlayInterval = setInterval(nextSlide, 6000);
+
+            // Pausar auto-play al hover
+            carouselSection.addEventListener('mouseenter', () => {
+                clearInterval(autoPlayInterval);
+            });
+
+            carouselSection.addEventListener('mouseleave', () => {
+                autoPlayInterval = setInterval(nextSlide, 6000);
+            });
+
+            // Soporte para touch en móviles
+            let startX = 0;
+            let isDragging = false;
+
+            carouselTrack.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                clearInterval(autoPlayInterval);
+            });
+
+            carouselTrack.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                const currentX = e.touches[0].clientX;
+                const diff = startX - currentX;
+
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    isDragging = false;
+                }
+            });
+
+            carouselTrack.addEventListener('touchend', () => {
+                isDragging = false;
+                autoPlayInterval = setInterval(nextSlide, 6000);
+            });
+        }
     }
 });
 

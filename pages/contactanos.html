@@ -16,8 +16,9 @@
             </div>
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../index.html#features">Características</a></li>
+                <li><a href="caracteristicas.html">Características</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="productos.html">Productos</a></li>
                 <li><a href="contactanos.html">Contacto</a></li>
             </ul>
         </nav>
@@ -27,33 +28,89 @@
         <div class="container">
             <h2>Contáctanos</h2>
             <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
-            <form id="contact-form" action="#" method="post">
-                <div class="form-group">
-                    <label for="nombre">Nombre *</label>
-                    <input type="text" id="nombre" name="nombre" required>
+
+            <!-- Contact Tabs -->
+            <div class="contact-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="email">
+                        <i class="fas fa-envelope"></i> Correo Electrónico
+                    </button>
+                    <button class="tab-btn" data-tab="whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
                 </div>
-                <div class="form-group">
-                    <label for="apellido">Apellido *</label>
-                    <input type="text" id="apellido" name="apellido" required>
+
+                <div class="tab-content">
+                    <!-- Email Form -->
+                    <div id="email-tab" class="tab-pane active">
+                        <form id="contact-form" action="https://formspree.io/f/xpznqkgj" method="POST">
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="nombre">Nombre *</label>
+                                    <input type="text" id="nombre" name="nombre" required>
+                                </div>
+                                <div class="form-group half">
+                                    <label for="apellido">Apellido *</label>
+                                    <input type="text" id="apellido" name="apellido" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="telefono">Número de Contacto *</label>
+                                    <input type="tel" id="telefono" name="telefono" required>
+                                </div>
+                                <div class="form-group half">
+                                    <label for="correo">Correo Electrónico *</label>
+                                    <input type="email" id="correo" name="correo" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion">Dirección Corta</label>
+                                <input type="text" id="direccion" name="direccion">
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripción del Proyecto *</label>
+                                <textarea id="descripcion" name="descripcion" rows="3" required placeholder="Describe tu proyecto o consulta..."></textarea>
+                            </div>
+                            <button type="submit" class="cta-button">Enviar Mensaje</button>
+                        </form>
+                    </div>
+
+                    <!-- WhatsApp Form -->
+                    <div id="whatsapp-tab" class="tab-pane">
+                        <div class="whatsapp-contact">
+                            <div class="whatsapp-info">
+                                <i class="fab fa-whatsapp whatsapp-icon"></i>
+                                <h3>Contáctanos por WhatsApp</h3>
+                                <p>Para consultas rápidas y atención personalizada, escríbenos por WhatsApp. Te responderemos en breve.</p>
+                                <div class="whatsapp-details">
+                                    <p><strong>Número:</strong> +58 414 123 4567</p>
+                                    <p><strong>Horario de atención:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                            <form id="whatsapp-form" action="#" method="post">
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="whatsapp-nombre">Nombre *</label>
+                                        <input type="text" id="whatsapp-nombre" name="whatsapp-nombre" required>
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="whatsapp-telefono">Número de WhatsApp *</label>
+                                        <input type="tel" id="whatsapp-telefono" name="whatsapp-telefono" required placeholder="+58 XXX XXX XXXX">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="whatsapp-mensaje">Mensaje *</label>
+                                    <textarea id="whatsapp-mensaje" name="whatsapp-mensaje" rows="3" required placeholder="Escribe tu consulta o mensaje..."></textarea>
+                                </div>
+                                <button type="submit" class="cta-button whatsapp-btn">
+                                    <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="telefono">Número de Contacto *</label>
-                    <input type="tel" id="telefono" name="telefono" required>
-                </div>
-                <div class="form-group">
-                    <label for="correo">Correo Electrónico</label>
-                    <input type="email" id="correo" name="correo">
-                </div>
-                <div class="form-group">
-                    <label for="direccion">Dirección Corta</label>
-                    <input type="text" id="direccion" name="direccion">
-                </div>
-                <div class="form-group">
-                    <label for="descripcion">Descripción</label>
-                    <textarea id="descripcion" name="descripcion" rows="4"></textarea>
-                </div>
-                <button type="submit" class="cta-button">Enviar Mensaje</button>
-            </form>
+            </div>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -63,21 +120,140 @@
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
                     <h3>Teléfono</h3>
-                    <p>+58 123 456 7890</p>
+                    <p>+58 414 123 4567</p>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>Ubicación</h3>
-                    <p>Caracas, Venezuela</p>
+                    <p>Centro de Caracas, Venezuela</p>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="contact-map">
+                <h3>Encuéntranos</h3>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.9999999999995!2d-66.90360368479272!3d10.48059379249663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58a5c5c5c5c5%3A0x1234567890abcdef!2sCentro%20de%20Caracas%2C%20Venezuela!5e0!3m2!1ses!2s!4v1635000000000!5m2!1ses!2s"
+                        width="100%"
+                        height="300"
+                        style="border:0; border-radius: 10px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="map-info">
+                    <p><strong>Dirección:</strong> Centro de Caracas, Venezuela</p>
+                    <p><strong>Horario:</strong> Lunes a Viernes 9:00 AM - 6:00 PM</p>
+                    <p><strong>Transporte:</strong> Metro, autobuses y estacionamiento cercano</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2023 Making Lights. Todos los derechos reservados.</p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Making Lights</h3>
+                <p>Fabricando Ideas Con Propósito</p>
+                <p>Somos un taller creativo especializado en impresión 3D, ofreciendo servicios integrales de diseño, escaneado 3D, cursos y alternativas de reciclaje para transformar tus ideas en proyectos sostenibles.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="servicios.html">Impresión 3D</a></li>
+                    <li><a href="servicios.html">Diseño y Modelado</a></li>
+                    <li><a href="servicios.html">Escaneado 3D</a></li>
+                    <li><a href="servicios.html">Cursos y Capacitación</a></li>
+                    <li><a href="servicios.html">Reciclaje y Sostenibilidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Productos</h3>
+                <ul>
+                    <li><a href="productos.html">Ver Todos los Productos</a></li>
+                    <li><a href="productos.html">Nuevos Lanzamientos</a></li>
+                    <li><a href="productos.html">Ofertas Especiales</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> info@makinglights.com</p>
+                <p><i class="fas fa-phone"></i> +58 XXX XXX XXXX</p>
+                <p><i class="fas fa-map-marker-alt"></i> Venezuela</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Making Lights. Todos los derechos reservados.</p>
+                <p>Empresa B - Triple Impacto: Social, Ambiental y Económico</p>
+            </div>
         </div>
     </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Contact Tabs Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and panes
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding pane
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab') + '-tab';
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Email form submission with success message
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    // Don't prevent default - let Formspree handle it
+                    setTimeout(() => {
+                        // Show success message after form submission
+                        alert('¡Mensaje enviado exitosamente! Te responderemos pronto.');
+                        contactForm.reset();
+                    }, 1000);
+                });
+            }
+
+            // WhatsApp form submission
+            const whatsappForm = document.getElementById('whatsapp-form');
+            if (whatsappForm) {
+                whatsappForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const nombre = document.getElementById('whatsapp-nombre').value;
+                    const telefono = document.getElementById('whatsapp-telefono').value;
+                    const mensaje = document.getElementById('whatsapp-mensaje').value;
+
+                    // Create WhatsApp URL
+                    const whatsappUrl = `https://wa.me/584141234567?text=${encodeURIComponent(
+                        `Hola, soy ${nombre}. ${mensaje}`
+                    )}`;
+
+                    // Open WhatsApp
+                    window.open(whatsappUrl, '_blank');
+
+                    // Reset form
+                    whatsappForm.reset();
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Making Lights</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Making Lights</h1>
+            </div>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="caracteristicas.html">Características</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contactanos.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="products-page">
+        <div class="container">
+            <h2>Nuestros Productos</h2>
+            <div class="products-grid">
+                <!-- Productos se cargarán dinámicamente desde el CSV -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Making Lights</h3>
+                <p>Fabricando Ideas Con Propósito</p>
+                <p>Somos un taller creativo especializado en impresión 3D, ofreciendo servicios integrales de diseño, escaneado 3D, cursos y alternativas de reciclaje para transformar tus ideas en proyectos sostenibles.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="servicios.html">Impresión 3D</a></li>
+                    <li><a href="servicios.html">Diseño y Modelado</a></li>
+                    <li><a href="servicios.html">Escaneado 3D</a></li>
+                    <li><a href="servicios.html">Cursos y Capacitación</a></li>
+                    <li><a href="servicios.html">Reciclaje y Sostenibilidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Productos</h3>
+                <ul>
+                    <li><a href="productos.html">Ver Todos los Productos</a></li>
+                    <li><a href="productos.html">Nuevos Lanzamientos</a></li>
+                    <li><a href="productos.html">Ofertas Especiales</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> info@makinglights.com</p>
+                <p><i class="fas fa-phone"></i> +58 XXX XXX XXXX</p>
+                <p><i class="fas fa-map-marker-alt"></i> Venezuela</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Making Lights. Todos los derechos reservados.</p>
+                <p>Empresa B - Triple Impacto: Social, Ambiental y Económico</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Función para parsear línea CSV correctamente
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                if (char === '"') {
+                    if (inQuotes && line[i + 1] === '"') {
+                        current += '"';
+                        i++; // skip next quote
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current);
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current);
+            return result;
+        }
+
+        // Cargar productos desde CSV
+        fetch('../Making Lights_products.csv')
+            .then(response => response.text())
+            .then(data => {
+                const lines = data.split('\n');
+                const products = [];
+                for (let i = 10; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (line) {
+                        const columns = parseCSVLine(line);
+                        if (columns.length >= 18) {
+                            const product = {
+                                id: columns[1],
+                                name: columns[2],
+                                description: columns[3],
+                                price: columns[8],
+                                image: columns[16],
+                                categories: columns[11]
+                            };
+                            products.push(product);
+                        }
+                    }
+                }
+                displayProducts(products);
+            })
+            .catch(error => console.error('Error loading products:', error));
+
+        function displayProducts(products) {
+            const grid = document.querySelector('.products-grid');
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p class="price">$${product.price}</p>
+                    <a href="producto-${product.id}.html" class="cta-button">Ver Detalles</a>
+                `;
+                grid.appendChild(productCard);
+            });
+        }
+    </script>
+</body>
+</html>
