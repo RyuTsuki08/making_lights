@@ -14,7 +14,12 @@
             <div class="logo">
                 <h1>Making Lights</h1>
             </div>
-            <ul>
+            <button class="mobile-menu-toggle" aria-label="Menú de navegación" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-menu">
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="pages/servicios.html">Servicios</a></li>
                 <li><a href="pages/productos.html">Productos</a></li>
@@ -22,14 +27,23 @@
                 <li><a href="pages/contactanos.html">Contacto</a></li>
             </ul>
         </nav>
-    
     </header>
 
     <section id="banner">
         <div class="banner-content">
             <h1>Making Lights</h1>
             <p>Innovación y creatividad en cada proyecto</p>
-            <a href="pages/contactanos.html" class="cta-button">Cotizar Ahora</a>
+
+            <div class="container-button">
+            <a href="pages/contactanos.html" class="button type--C">
+                <div class="button__line"></div>
+                <div class="button__line"></div>
+                <span class="button__text">Cotizar ahora</span>
+                <div class="button__drow1"></div>
+                <div class="button__drow2"></div>
+            </a>
+</div>
+            <!-- <a href="pages/contactanos.html"> Cotizar Ahora</a> -->
         </div>     
 
         <div class="atom-3d">
@@ -60,66 +74,55 @@
       <div class="slide">
         <div
           class="item"
-          style="
-            background-image: url('./assets/images/servicios/service_banner.jpg');
-          "
+          style="background-image: url('assets/images/servicios/service_banner.jpg');"
         >
           <div class="content">
             <div class="name">MAKING LIGHTS</div>
             <div class="des">
-              Somos un taller creativo especializado en impresión 3D. Ofrecemos un servicio integral que abarca desde el diseño, escaneado 3D, cursos y alternativas de reciclaje para transformar tus ideas en proyectos sostenibles que transformen tu entorno "
+              Somos un taller creativo especializado en impresión 3D. Ofrecemos un servicio integral que abarca desde el diseño, escaneado 3D, cursos y alternativas de reciclaje para transformar tus ideas en proyectos sostenibles que transformen tu entorno.
               <a
               class="seeMore"
               href="./pages/servicios.html"
               ><button>Ver más</button></a
             >
             </div>
-          
           </div>
         </div>
 
         <div
           class="item"
-          style="
-            background-image: url('./assets/images/servicios/slide_2.jpeg');
-          "
+          style="background-image: url('assets/images/servicios/slide_2.jpeg');"
         >
           <div class="content">
             <div class="name">NUESTRO TRIPLE IMPACTO</div>
             <div class="des">
-              Somos una empresa tipo B.  Trabajamos por impactar positivamente en nuestra realidad social, brindando formación a jóvenes para la creación de su proyecto de vida. ofreciendo alternativas economicas y sostenibles. "
+              Somos una empresa tipo B. Trabajamos por impactar positivamente en nuestra realidad social, brindando formación a jóvenes para la creación de su proyecto de vida, ofreciendo alternativas económicas y sostenibles.
                         <a
               class="seeMore"
               href="./pages/caracteristicas.html"
               ><button>Explorar</button></a
             >
             </div>
-
           </div>
         </div>
 
         <div
           class="item"
-          style="
-            background-image: url('./assets/images/servicios/slide_3.jpg');
-          "
-        >
+          style="background-image: url('assets/images/servicios/slide_3.jpg');">
           <div class="content">
-            <div class="name">Mision, Vision y Objetivos</div>
+            <div class="name">Misión, Visión y Objetivos</div>
             <div class="des">
-              Nuestra Misiòn es ser agentes de cambio.
+              Nuestra Misión es ser agentes de cambio.
 
-Nuestra Visiòn esta en la tecnologìa 3D y la automatizaciòn de triple impacto.
+            Nuestra Visión está en la tecnología 3D y la automatización de triple impacto.
 
-Nuestro principal objetivo es ser la vanguardia venezolana de jòvenes emprendedores con mayor impacto en el pais.  "
-
- <a
+            Nuestro principal objetivo es ser la vanguardia venezolana de jóvenes emprendedores con mayor impacto en el país.
+             <a
               class="seeMore"
               href="./pages/productos.html"
               ><button>Comprar ahora</button></a
             >
             </div>
-           
           </div>
         </div>
 
@@ -143,16 +146,16 @@ Nuestro principal objetivo es ser la vanguardia venezolana de jòvenes emprended
           </div>
         </div> -->
       </div>
-      <div class="button">
-        <button class="prev">◁</button>
-        <button class="next">▷</button>
+      <div class="button-carousel">
+        <button class="prev" aria-label="Slide anterior" title="Slide anterior">◁</button>
+        <button class="next" aria-label="Slide siguiente" title="Slide siguiente">▷</button>
       </div>
     </div>
       </section>
 
 
     <section id="features">
-        <div class="container">
+        <div class="container section-container">
             <div class="features-header">
                 <h2>Centro de Conocimiento</h2>
                 <p>Explora nuestro blog con artículos especializados sobre impresión 3D, diseño digital y tendencias tecnológicas</p>
@@ -214,7 +217,7 @@ Nuestro principal objetivo es ser la vanguardia venezolana de jòvenes emprended
     </section>
 
     <section id="products">
-        <div class="container">
+        <div class="container section-container">
             <h2>Nuestros Productos</h2>
             <div id="featured-products" class="products-grid">
                 <!-- Productos destacados se cargarán dinámicamente desde el CSV -->
@@ -226,7 +229,7 @@ Nuestro principal objetivo es ser la vanguardia venezolana de jòvenes emprended
     </section>
 
     <section id="testimonials">
-        <div class="container">
+        <div class="container section-container">
             <h2>Lo Que Dicen Nuestros Clientes</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
@@ -276,7 +279,7 @@ Nuestro principal objetivo es ser la vanguardia venezolana de jòvenes emprended
     </section>
 
     <section id="location">
-        <div class="container">
+        <div class="container section-container">
             <h2>Nuestra Ubicación</h2>
             <p>Visítanos en el corazón de Caracas, Venezuela</p>
             <div class="location-content">
@@ -392,6 +395,36 @@ Nuestro principal objetivo es ser la vanguardia venezolana de jòvenes emprended
                 <button id="chatbot-send" aria-label="Enviar mensaje">
                     <i class="fas fa-paper-plane"></i>
                 </button>
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (mobileMenuToggle && navMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    mobileMenuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking on a link
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!navMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
             </div>
         </div>
     </div>

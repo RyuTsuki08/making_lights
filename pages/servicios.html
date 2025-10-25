@@ -14,7 +14,12 @@
             <div class="logo">
                 <h1>Making Lights</h1>
             </div>
-            <ul>
+            <button class="mobile-menu-toggle" aria-label="Menú de navegación" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-menu">
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="caracteristicas.html">Características</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
@@ -33,143 +38,188 @@
 
     <section id="services">
         <div class="container">
-            <h2>Nuestros Servicios</h2>
-            <p class="services-intro">Ofrecemos una gama completa de servicios especializados en tecnología 3D, desde el diseño conceptual hasta la producción final, con un enfoque en la innovación sostenible.</p>
+            <div class="services-header">
+                <h2>Nuestros Servicios</h2>
+                <p class="services-intro">Ofrecemos una gama completa de servicios especializados en tecnología 3D, desde el diseño conceptual hasta la producción final, con un enfoque en la innovación sostenible.</p>
+            </div>
 
             <div class="services-grid">
-                <div class="service">
-                    <i class="fas fa-cube"></i>
-                    <h3>Diseño 3D</h3>
-                    <p>Creación de modelos tridimensionales innovadores y personalizados para tus proyectos. Utilizamos software profesional como Fusion 360, Blender y SolidWorks.</p>
-                    <ul class="service-features">
-                        <li>Modelado paramétrico</li>
-                        <li>Optimización para impresión</li>
-                        <li>Renderizado fotorealista</li>
-                        <li>Archivos listos para fabricación</li>
-                    </ul>
-                </div>
-                <div class="service">
-                    <i class="fas fa-print"></i>
-                    <h3>Impresión 3D</h3>
-                    <p>Producción de prototipos y piezas funcionales con tecnología de vanguardia. Trabajamos con múltiples materiales y técnicas de impresión.</p>
-                    <ul class="service-features">
-                        <li>FDM, SLA y SLS</li>
-                        <li>Múltiples materiales (PLA, ABS, PETG, Resina)</li>
-                        <li>Acabados profesionales</li>
-                        <li>Control de calidad</li>
-                    </ul>
-                </div>
-                <div class="service">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Consultoría</h3>
-                    <p>Asesoramiento experto en soluciones creativas y tecnológicas para tu negocio. Te ayudamos a integrar la impresión 3D en tus procesos.</p>
-                    <ul class="service-features">
-                        <li>Análisis de viabilidad</li>
-                        <li>Optimización de diseños</li>
-                        <li>Selección de materiales</li>
-                        <li>Implementación de workflows</li>
-                    </ul>
-                </div>
-                <div class="service">
-                    <i class="fas fa-tools"></i>
-                    <h3>Prototipado</h3>
-                    <p>Desarrollo rápido de prototipos para validar ideas y acelerar el proceso de innovación. De concepto a producto funcional en tiempo récord.</p>
-                    <ul class="service-features">
-                        <li>Prototipos funcionales</li>
-                        <li>Iteración rápida</li>
-                        <li>Testing y validación</li>
-                        <li>Preparación para producción</li>
-                    </ul>
-                </div>
-                <div class="service">
-                    <i class="fas fa-scanner"></i>
-                    <h3>Escaneado 3D</h3>
-                    <p>Digitalización de objetos físicos para crear modelos 3D precisos. Perfecto para reverse engineering y preservación de piezas.</p>
-                    <ul class="service-features">
-                        <li>Escáneres de alta precisión</li>
-                        <li>Procesamiento de nubes de puntos</li>
-                        <li>Modelos mesh optimizados</li>
-                        <li>Archivos compatibles con CAD</li>
-                    </ul>
-                </div>
-                <div class="service">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Cursos y Capacitación</h3>
-                    <p>Formación especializada en impresión 3D y diseño digital. Cursos para principiantes y profesionales que buscan expandir sus habilidades.</p>
-                    <ul class="service-features">
-                        <li>Cursos presenciales y online</li>
-                        <li>Certificación incluida</li>
-                        <li>Material didáctico completo</li>
-                        <li>Práctica con equipos profesionales</li>
-                    </ul>
-                </div>
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cube" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Diseño 3D</h3>
+                        <p>Creación de modelos tridimensionales innovadores y personalizados para tus proyectos. Utilizamos software profesional como Fusion 360, Blender y SolidWorks.</p>
+                        <ul class="service-features" role="list">
+                            <li>Modelado paramétrico</li>
+                            <li>Optimización para impresión</li>
+                            <li>Renderizado fotorealista</li>
+                            <li>Archivos listos para fabricación</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-print" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Impresión 3D</h3>
+                        <p>Producción de prototipos y piezas funcionales con tecnología de vanguardia. Trabajamos con múltiples materiales y técnicas de impresión.</p>
+                        <ul class="service-features" role="list">
+                            <li>FDM, SLA y SLS</li>
+                            <li>Múltiples materiales (PLA, ABS, PETG, Resina)</li>
+                            <li>Acabados profesionales</li>
+                            <li>Control de calidad</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Consultoría</h3>
+                        <p>Asesoramiento experto en soluciones creativas y tecnológicas para tu negocio. Te ayudamos a integrar la impresión 3D en tus procesos.</p>
+                        <ul class="service-features" role="list">
+                            <li>Análisis de viabilidad</li>
+                            <li>Optimización de diseños</li>
+                            <li>Selección de materiales</li>
+                            <li>Implementación de workflows</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Prototipado</h3>
+                        <p>Desarrollo rápido de prototipos para validar ideas y acelerar el proceso de innovación. De concepto a producto funcional en tiempo récord.</p>
+                        <ul class="service-features" role="list">
+                            <li>Prototipos funcionales</li>
+                            <li>Iteración rápida</li>
+                            <li>Testing y validación</li>
+                            <li>Preparación para producción</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-scanner" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Escaneado 3D</h3>
+                        <p>Digitalización de objetos físicos para crear modelos 3D precisos. Perfecto para reverse engineering y preservación de piezas.</p>
+                        <ul class="service-features" role="list">
+                            <li>Escáneres de alta precisión</li>
+                            <li>Procesamiento de nubes de puntos</li>
+                            <li>Modelos mesh optimizados</li>
+                            <li>Archivos compatibles con CAD</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Cursos y Capacitación</h3>
+                        <p>Formación especializada en impresión 3D y diseño digital. Cursos para principiantes y profesionales que buscan expandir sus habilidades.</p>
+                        <ul class="service-features" role="list">
+                            <li>Cursos presenciales y online</li>
+                            <li>Certificación incluida</li>
+                            <li>Material didáctico completo</li>
+                            <li>Práctica con equipos profesionales</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
     <section id="process">
         <div class="container">
-            <h2>Nuestro Proceso de Trabajo</h2>
-            <p>Metodología estructurada para garantizar resultados excepcionales en cada proyecto</p>
-
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Consulta Inicial</h3>
-                    <p>Analizamos tus necesidades y objetivos para entender completamente tu proyecto.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Diseño y Planificación</h3>
-                    <p>Desarrollamos el concepto y planificamos la ejecución técnica del proyecto.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Producción</h3>
-                    <p>Fabricamos tu proyecto con los más altos estándares de calidad.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Entrega y Soporte</h3>
-                    <p>Entregamos el producto final y brindamos soporte continuo.</p>
-                </div>
+            <div class="process-header">
+                <h2>Nuestro Proceso de Trabajo</h2>
+                <p>Metodología estructurada para garantizar resultados excepcionales en cada proyecto</p>
             </div>
+
+            <ol class="process-steps" role="list">
+                <li class="process-step">
+                    <div class="step-number" aria-hidden="true">1</div>
+                    <div class="step-content">
+                        <h3>Consulta Inicial</h3>
+                        <p>Analizamos tus necesidades y objetivos para entender completamente tu proyecto.</p>
+                    </div>
+                </li>
+                <li class="process-step">
+                    <div class="step-number" aria-hidden="true">2</div>
+                    <div class="step-content">
+                        <h3>Diseño y Planificación</h3>
+                        <p>Desarrollamos el concepto y planificamos la ejecución técnica del proyecto.</p>
+                    </div>
+                </li>
+                <li class="process-step">
+                    <div class="step-number" aria-hidden="true">3</div>
+                    <div class="step-content">
+                        <h3>Producción</h3>
+                        <p>Fabricamos tu proyecto con los más altos estándares de calidad.</p>
+                    </div>
+                </li>
+                <li class="process-step">
+                    <div class="step-number" aria-hidden="true">4</div>
+                    <div class="step-content">
+                        <h3>Entrega y Soporte</h3>
+                        <p>Entregamos el producto final y brindamos soporte continuo.</p>
+                    </div>
+                </li>
+            </ol>
         </div>
     </section>
 
     <section id="pricing">
         <div class="container">
-            <h2>Planes de Servicio</h2>
-            <p>Elige el plan que mejor se adapte a tus necesidades y presupuesto</p>
+            <div class="pricing-header">
+                <h2>Planes de Servicio</h2>
+                <p>Elige el plan que mejor se adapte a tus necesidades y presupuesto</p>
+            </div>
 
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Básico</h3>
-                    <div class="price">$50<span>/hora</span></div>
-                    <ul>
+            <div class="pricing-grid" role="list">
+                <article class="pricing-card" role="listitem">
+                    <div class="pricing-header">
+                        <h3>Básico</h3>
+                        <div class="price" aria-label="50 dólares por hora">$50<span>/hora</span></div>
+                    </div>
+                    <ul class="pricing-features" role="list">
                         <li>Consultoría básica</li>
                         <li>Diseño 3D simple</li>
                         <li>Impresión estándar</li>
                         <li>Soporte por email</li>
                     </ul>
-                    <a href="contactanos.html" class="cta-button">Seleccionar</a>
-                </div>
-                <div class="pricing-card featured">
-                    <h3>Profesional</h3>
-                    <div class="price">$100<span>/hora</span></div>
-                    <ul>
+                    <a href="contactanos.html" class="cta-button" aria-label="Seleccionar plan Básico">Seleccionar</a>
+                </article>
+                <article class="pricing-card featured" role="listitem">
+                    <div class="pricing-badge" aria-label="Más popular">Más Popular</div>
+                    <div class="pricing-header">
+                        <h3>Profesional</h3>
+                        <div class="price" aria-label="100 dólares por hora">$100<span>/hora</span></div>
+                    </div>
+                    <ul class="pricing-features" role="list">
                         <li>Consultoría avanzada</li>
                         <li>Diseño 3D complejo</li>
                         <li>Múltiples impresiones</li>
                         <li>Escaneado 3D incluido</li>
                         <li>Soporte prioritario</li>
                     </ul>
-                    <a href="contactanos.html" class="cta-button">Seleccionar</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Empresarial</h3>
-                    <div class="price">$200<span>/hora</span></div>
-                    <ul>
+                    <a href="contactanos.html" class="cta-button" aria-label="Seleccionar plan Profesional">Seleccionar</a>
+                </article>
+                <article class="pricing-card" role="listitem">
+                    <div class="pricing-header">
+                        <h3>Empresarial</h3>
+                        <div class="price" aria-label="200 dólares por hora">$200<span>/hora</span></div>
+                    </div>
+                    <ul class="pricing-features" role="list">
                         <li>Consultoría estratégica</li>
                         <li>Diseño personalizado</li>
                         <li>Producción en serie</li>
@@ -177,33 +227,65 @@
                         <li>Soporte 24/7</li>
                         <li>Mantenimiento preventivo</li>
                     </ul>
-                    <a href="contactanos.html" class="cta-button">Seleccionar</a>
-                </div>
+                    <a href="contactanos.html" class="cta-button" aria-label="Seleccionar plan Empresarial">Seleccionar</a>
+                </article>
             </div>
         </div>
     </section>
 
     <section id="faq">
         <div class="container">
-            <h2>Preguntas Frecuentes</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>¿Cuánto tiempo toma completar un proyecto?</h3>
-                    <p>El tiempo varía según la complejidad. Un prototipo simple puede tomar 1-2 días, mientras que proyectos complejos pueden requerir 1-2 semanas.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>¿Qué materiales utilizan para la impresión 3D?</h3>
-                    <p>Trabajamos con PLA, ABS, PETG, TPU, nylon, resina y metales. Seleccionamos el material óptimo según las necesidades del proyecto.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>¿Ofrecen garantía en sus servicios?</h3>
-                    <p>Sí, ofrecemos garantía de 30 días en todos nuestros servicios. Nos aseguramos de que el resultado final cumpla con tus expectativas.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>¿Pueden trabajar con diseños existentes?</h3>
-                    <p>Absolutamente. Podemos trabajar con archivos STL, OBJ, STEP u otros formatos CAD. También podemos escanear objetos físicos existentes.</p>
-                </div>
+            <div class="faq-header">
+                <h2>Preguntas Frecuentes</h2>
             </div>
+            <dl class="faq-grid">
+                <div class="faq-item">
+                    <dt class="faq-question">¿Cuánto tiempo toma completar un proyecto?</dt>
+                    <dd class="faq-answer">El tiempo varía según la complejidad. Un prototipo simple puede tomar 1-2 días, mientras que proyectos complejos pueden requerir 1-2 semanas.</dd>
+                </div>
+                <div class="faq-item">
+                    <dt class="faq-question">¿Qué materiales utilizan para la impresión 3D?</dt>
+                    <dd class="faq-answer">Trabajamos con PLA, ABS, PETG, TPU, nylon, resina y metales. Seleccionamos el material óptimo según las necesidades del proyecto.</dd>
+                </div>
+                <div class="faq-item">
+                    <dt class="faq-question">¿Ofrecen garantía en sus servicios?</dt>
+                    <dd class="faq-answer">Sí, ofrecemos garantía de 30 días en todos nuestros servicios. Nos aseguramos de que el resultado final cumpla con tus expectativas.</dd>
+                </div>
+                <div class="faq-item">
+                    <dt class="faq-question">¿Pueden trabajar con diseños existentes?</dt>
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (mobileMenuToggle && navMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    mobileMenuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking on a link
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!navMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+                    <dd class="faq-answer">Absolutamente. Podemos trabajar con archivos STL, OBJ, STEP u otros formatos CAD. También podemos escanear objetos físicos existentes.</dd>
+                </div>
+            </dl>
         </div>
     </section>
 

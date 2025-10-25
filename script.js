@@ -8,18 +8,91 @@ window.addEventListener('scroll', function() {
 });
 
 
-// Carrusel de servicios
-let next = document.querySelector(".next");
-let prev = document.querySelector(".prev");
+// Carrusel de servicios mejorado
+document.addEventListener('DOMContentLoaded', function() {
+    const nextBtn = document.querySelector(".button-carousel .next");
+    const prevBtn = document.querySelector(".button-carousel .prev");
+    const slide = document.querySelector(".slide");
+    const items = document.querySelectorAll(".item");
 
-next.addEventListener("click", function () {
-  let items = document.querySelectorAll(".item");
-  document.querySelector(".slide").appendChild(items[0]);
-});
+    if (!nextBtn || !prevBtn || !slide || items.length === 0) return;
 
-prev.addEventListener("click", function () {
-  let items = document.querySelectorAll(".item");
-  document.querySelector(".slide").prepend(items[items.length - 1]);
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const translateX = -currentIndex * (100 / 3); // Mover 1/3 del ancho total
+        slide.style.transform = `translateX(${translateX}%)`;
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
+    }
+
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+
+    // Auto-play opcional
+    let autoPlayInterval = setInterval(nextSlide, 8000);
+
+    // Pausar auto-play al hover
+    const carouselContainer = document.querySelector('.carousel-container-first');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            autoPlayInterval = setInterval(nextSlide, 8000);
+        });
+    }
+
+    // Soporte para touch en móviles
+    let startX = 0;
+    let isDragging = false;
+
+    slide.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        clearInterval(autoPlayInterval);
+    });
+
+    slide.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const diff = startX - currentX;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+            isDragging = false;
+        }
+    });
+
+    slide.addEventListener('touchend', () => {
+        isDragging = false;
+        autoPlayInterval = setInterval(nextSlide, 8000);
+    });
+
+    // Soporte para teclado
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+        }
+    });
+
+    // Inicializar el carrusel
+    updateCarousel();
 });
 
 
