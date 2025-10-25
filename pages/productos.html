@@ -84,6 +84,36 @@
         </div>
     </footer>
 
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (mobileMenuToggle && navMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    mobileMenuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking on a link
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!navMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
     <script src="../script.js"></script>
     <script>
         // Función para parsear línea CSV correctamente
@@ -147,36 +177,6 @@
                     <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>
-    <script>
-        // Mobile menu toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navMenu = document.querySelector('.nav-menu');
-
-            if (mobileMenuToggle && navMenu) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                    mobileMenuToggle.classList.toggle('active');
-                });
-
-                // Close menu when clicking on a link
-                navMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        navMenu.classList.remove('active');
-                        mobileMenuToggle.classList.remove('active');
-                    });
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!navMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                        navMenu.classList.remove('active');
-                        mobileMenuToggle.classList.remove('active');
-                    }
-                });
-            }
-        });
-    </script>
                     <p class="price">$${product.price}</p>
                     <a href="producto-${product.id}.html" class="cta-button">Ver Detalles</a>
                 `;
